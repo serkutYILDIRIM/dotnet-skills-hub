@@ -1,0 +1,29 @@
+# ── IDE ──
+.idea/
+.vscode/
+*.iml
+
+# ── Dependencies ──
+node_modules/
+
+# ── Build ──
+dist/
+.astro/
+
+# ── Environment ──
+.env
+.env.*
+
+# ── Logs ──
+*.log
+
+# ── Generated ──
+scan-report.json
+site/src/data/skills.json
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── Cache ──
+.cache/
