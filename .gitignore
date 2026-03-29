@@ -1,29 +1,41 @@
-# ── IDE ──
-.idea/
-.vscode/
-*.iml
-
-# ── Dependencies ──
+# Dependencies
 node_modules/
 
-# ── Build ──
+# Build outputs
 dist/
 .astro/
 
-# ── Environment ──
+# Environment variables
 .env
-.env.*
+.env.local
+.env.*.local
 
-# ── Logs ──
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# ── Generated ──
+# Scan reports
 scan-report.json
-site/src/data/skills.json
 
-# ── OS ──
+# OS files
 .DS_Store
 Thumbs.db
 
-# ── Cache ──
+# Cache
 .cache/
+.temp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+coverage/
+.nyc_output/
