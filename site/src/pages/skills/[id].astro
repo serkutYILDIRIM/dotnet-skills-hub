@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+export async function getStaticPaths() {
+  let skills: any[] = [];
+
+  try {
+    const dataPath = join(process.cwd(), 'src', 'data', 'skills.json');
+    if (existsSync(dataPath)) {
+      const content = readFileSync(dataPath, 'utf-8');
+      const skillsData = JSON.parse(content);
+      skills = skillsData.skills || [];
+    }
+  } catch (error) {
+    console.error('Failed to load skills data:', error);
+  }
+
+  return skills.map((skill) => ({
+    params: { id: skill.id },
+    props: { skill }
+  }));
+}
+
+const { skill } = Astro.props;
+const installCommand = `gh copilot skill add ${skill.id}`;
+---
+
+<Layout title={`${skill.name} - .NET Skills Hub`}>
+  <a href="/" class="back-link">
+    ← Back to Skills
+  </a>
+
+  <div class="detail-header">
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1>{skill.name}</h1>
+        <div class="skill-badges" style="margin-top: 1rem;">
+          <span class="badge badge-category">{skill.category}</span>
+          {skill.complexity && (
+            <span class={`badge badge-${skill.complexity}`}>
+              {skill.complexity}
+            </span>
+          )}
+          {skill.featured && (
+            <span class="badge badge-featured">⭐ Featured</span>
+          )}
+          {skill.verified && (
+            <span class="badge badge-verified">✓ Verified</span>
+          )}
+        </div>
+      </div>
+      <button class="btn btn-primary install-btn" data-command={installCommand}>
+        Install Skill
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-content">
+    <section>
+      <h2>Description</h2>
+      <p>{skill.description}</p>
+    </section>
+
+    {skill.triggers && skill.triggers.length > 0 && (
+      <section>
+        <h2>Triggers</h2>
+        <div class="skill-tags">
+          {skill.triggers.map((trigger: string) => (
+            <span class="tag">{trigger}</span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {skill.tags && skill.tags.length > 0 && (
+      <section>
+        <h2>Tags</h2>
+        <div class="skill-tags">
+          {skill.tags.map((tag: string) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section>
+      <h2>Details</h2>
+      <div class="card">
+        <p><strong>Author:</strong> {skill.author}</p>
+        <p><strong>Category:</strong> {skill.category}</p>
+        {skill.complexity && (
+          <p><strong>Complexity:</strong> {skill.complexity}</p>
+        )}
+        {skill.source && (
+          <p>
+            <strong>Source:</strong>{' '}
+            <a href={skill.source.repo} target="_blank" rel="noopener noreferrer">
+              {skill.source.repo}
+            </a>
+          </p>
+        )}
+      </div>
+    </section>
+
+    <section>
+      <h2>Installation</h2>
+      <pre><code>{installCommand}</code></pre>
+      <p class="text-secondary" style="font-size: 0.9rem; margin-top: 1rem;">
+        Copy the command above and run it in your terminal to install this skill.
+      </p>
+    </section>
+
+    {skill.files && skill.files.length > 0 && (
+      <section class="file-content">
+        <h2>Skill Content</h2>
+        {skill.files.map((file: any) => (
+          <div style="margin-bottom: 2rem;">
+            <div class="file-header">{file.path}</div>
+            <div class="file-body">
+              <pre><code>{file.content}</code></pre>
+            </div>
+          </div>
+        ))}
+      </section>
+    )}
+  </div>
+
+  <script>
+    const installButton = document.querySelector('.install-btn');
+
+    if (installButton) {
+      installButton.addEventListener('click', async () => {
+        const command = installButton.getAttribute('data-command');
+        if (command) {
+          try {
+            await navigator.clipboard.writeText(command);
+            const originalText = installButton.textContent;
+            installButton.textContent = '✓ Copied to Clipboard!';
+            setTimeout(() => {
+              installButton.textContent = originalText;
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy:', err);
+            installButton.textContent = '✗ Failed to Copy';
+            setTimeout(() => {
+              installButton.textContent = 'Install Skill';
+            }, 2000);
+          }
+        }
+      });
+    }
+  </script>
+</Layout>

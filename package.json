@@ -1,13 +1,23 @@
 {
   "name": "dotnet-skills-hub",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "description": ".NET Skills Hub - A curated catalog of GitHub Copilot skills for C# .NET development",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "aggregate": "node scripts/aggregate-skills.js",
+    "scan": "node scripts/scan-skills.js --output scan-report.json --update-skills",
+    "scan:ai": "node scripts/scan-skills.js --output scan-report.json --update-skills --ai-scan",
+    "enrich": "node scripts/enrich-skills.js",
+    "build": "npm run aggregate && npm run scan && cd site && npm run build",
+    "dev": "npm run aggregate && cd site && npm run dev",
+    "update-submodules": "git submodule update --remote --merge"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "dependencies": {
+    "@github/copilot-sdk": "^0.1.31",
+    "gray-matter": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Serkut Yıldırım"
 }

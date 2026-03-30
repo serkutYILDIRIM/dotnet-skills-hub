@@ -1,0 +1,105 @@
+name: Submit a New .NET Skill
+description: Propose a new GitHub Copilot skill for the .NET Skills Hub
+title: "[New Skill] "
+labels: ["new-skill", "enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Submit a New .NET Skill
+        Thank you for contributing to the .NET Skills Hub! Please provide details about the skill you'd like to add.
+
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill Name
+      description: A clear, descriptive name for the skill
+      placeholder: "e.g., ASP.NET Core Middleware Development"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Detailed description of the skill (100-300 characters recommended)
+      placeholder: "Describe what this skill helps developers accomplish..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Select the most appropriate category for this skill
+      options:
+        - dotnet-core (.NET Core & Fundamentals)
+        - aspnet-web (ASP.NET & Web APIs)
+        - ef-data (Entity Framework & Data)
+        - testing (Testing & Quality)
+        - msbuild-build (MSBuild & Build System)
+        - dotnet-nuget (NuGet & Package Management)
+        - dotnet-upgrade (Migration & Upgrade)
+        - dotnet-maui (.NET MAUI & Mobile)
+        - dotnet-ai (AI & ML with .NET)
+        - dotnet-diag (Diagnostics & Performance)
+        - dotnet-template (Template Engine & Scaffolding)
+        - security (Security & Auth)
+    validations:
+      required: true
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: Repository URL
+      description: GitHub repository URL where the skill is hosted
+      placeholder: "https://github.com/username/repo"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexity Level
+      description: Skill complexity for developers
+      options:
+        - beginner
+        - intermediate
+        - advanced
+    validations:
+      required: true
+
+  - type: input
+    id: triggers
+    attributes:
+      label: Trigger Keywords
+      description: 3-5 keywords that should activate this skill (comma-separated)
+      placeholder: "e.g., middleware, pipeline, http context, request handling"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Any other relevant details about this skill
+      placeholder: "Prerequisites, dependencies, related skills, etc."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      description: Please confirm the following
+      options:
+        - label: This skill is focused on C# .NET development
+          required: true
+        - label: The repository is publicly accessible
+          required: true
+        - label: I have verified the skill file exists and is properly formatted
+          required: true
+        - label: This skill does not duplicate an existing entry
+          required: true

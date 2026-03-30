@@ -1,0 +1,91 @@
+---
+interface Props {
+  skill: {
+    id: string;
+    name: string;
+    shortDescription: string;
+    category: string;
+    author: string;
+    triggers?: string[];
+    complexity?: string;
+    featured?: boolean;
+    verified?: boolean;
+  };
+}
+
+const { skill } = Astro.props;
+const installCommand = `gh copilot skill add ${skill.id}`;
+---
+
+<div class="skill-card" data-skill-name={skill.name.toLowerCase()} data-skill-category={skill.category} data-skill-triggers={(skill.triggers || []).join(' ').toLowerCase()}>
+  <div class="skill-header">
+    <div>
+      <h3 class="skill-title">{skill.name}</h3>
+      {skill.featured && (
+        <span class="badge badge-featured">⭐ Featured</span>
+      )}
+    </div>
+  </div>
+
+  <p class="skill-description">{skill.shortDescription}</p>
+
+  <div class="skill-badges">
+    <span class="badge badge-category">{skill.category}</span>
+    {skill.complexity && (
+      <span class={`badge badge-${skill.complexity}`}>
+        {skill.complexity}
+      </span>
+    )}
+    {skill.verified && (
+      <span class="badge badge-verified">✓ Verified</span>
+    )}
+  </div>
+
+  {skill.triggers && skill.triggers.length > 0 && (
+    <div class="skill-tags">
+      {skill.triggers.slice(0, 5).map((trigger) => (
+        <span class="tag">{trigger}</span>
+      ))}
+    </div>
+  )}
+
+  <div class="skill-footer">
+    <span class="skill-author">by {skill.author}</span>
+    <div style="display: flex; gap: 0.5rem;">
+      <button class="btn btn-secondary btn-small install-btn" data-command={installCommand}>
+        Install
+      </button>
+      <a href={`/skills/${skill.id}/`} class="btn btn-primary btn-small">
+        View Details
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const installButtons = document.querySelectorAll('.install-btn');
+
+    installButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const command = button.getAttribute('data-command');
+        if (command) {
+          try {
+            await navigator.clipboard.writeText(command);
+            const originalText = button.textContent;
+            button.textContent = '✓ Copied!';
+            setTimeout(() => {
+              button.textContent = originalText;
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy:', err);
+            button.textContent = '✗ Failed';
+            setTimeout(() => {
+              button.textContent = 'Install';
+            }, 2000);
+          }
+        }
+      });
+    });
+  });
+</script>

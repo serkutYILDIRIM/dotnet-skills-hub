@@ -1,17 +1,130 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import SkillCard from '../components/SkillCard.astro';
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
 
+// Load skills data
+let skillsData: any = { version: '1.0.0', categories: [], skills: [] };
+
+try {
+  const dataPath = join(process.cwd(), 'src', 'data', 'skills.json');
+  if (existsSync(dataPath)) {
+    const content = readFileSync(dataPath, 'utf-8');
+    skillsData = JSON.parse(content);
+  }
+} catch (error) {
+  console.error('Failed to load skills data:', error);
+}
+
+const { categories, skills } = skillsData;
+
+// Calculate category counts
+const categoryCounts = new Map<string, number>();
+skills.forEach((skill: any) => {
+  const count = categoryCounts.get(skill.category) || 0;
+  categoryCounts.set(skill.category, count + 1);
+});
+
+const categoriesWithCounts = categories.map((cat: any) => ({
+  ...cat,
+  count: categoryCounts.get(cat.id) || 0
+}));
+
+// Get featured skills
+const featuredSkills = skills.filter((skill: any) => skill.featured);
+
+// Calculate stats
+const totalSkills = skills.length;
+const totalCategories = categories.length;
+const verifiedCount = skills.filter((skill: any) => skill.verified).length;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title=".NET Skills Hub - Curated GitHub Copilot Skills for C# .NET">
+  <div class="hero">
+    <h1 class="hero-title">.NET Skills Hub</h1>
+    <p class="hero-subtitle">
+      A curated catalog of GitHub Copilot skills for C# .NET development
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-value">{totalSkills}</div>
+        <div class="stat-label">Skills</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{totalCategories}</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{verifiedCount}</div>
+        <div class="stat-label">Verified</div>
+      </div>
+    </div>
+  </div>
+
+  <SearchBar />
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Categories</h2>
+    </div>
+    <div class="grid grid-4">
+      {categoriesWithCounts.map((category: any) => (
+        <CategoryCard
+          id={category.id}
+          name={category.name}
+          icon={category.icon}
+          count={category.count}
+          description={category.description}
+        />
+      ))}
+    </div>
+  </section>
+
+  {featuredSkills.length > 0 && (
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Featured Skills</h2>
+      </div>
+      <div class="grid">
+        {featuredSkills.map((skill: any) => (
+          <SkillCard skill={skill} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">All Skills</h2>
+    </div>
+    <div class="grid" id="all-skills">
+      {skills.map((skill: any) => (
+        <SkillCard skill={skill} />
+      ))}
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('skill-search', ((e: CustomEvent) => {
+      const query = e.detail.query;
+      const skillCards = document.querySelectorAll('.skill-card');
+
+      skillCards.forEach((card) => {
+        const name = card.getAttribute('data-skill-name') || '';
+        const category = card.getAttribute('data-skill-category') || '';
+        const triggers = card.getAttribute('data-skill-triggers') || '';
+
+        const searchText = `${name} ${category} ${triggers}`.toLowerCase();
+
+        if (query === '' || searchText.includes(query)) {
+          (card as HTMLElement).style.display = '';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    }) as EventListener);
+  </script>
+</Layout>

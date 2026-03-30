@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Copilot .NET Skills Registry",
+  "description": "Schema for the .NET Skills Hub skill registry",
+  "type": "object",
+  "required": ["version", "lastUpdated", "categories", "skills"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Registry version number"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    },
+    "categories": {
+      "type": "array",
+      "description": "Skill categories",
+      "items": {
+        "$ref": "#/definitions/Category"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "description": "Available skills",
+      "items": {
+        "$ref": "#/definitions/Skill"
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique category identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Category display name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Category description"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Category icon (emoji or identifier)"
+        }
+      }
+    },
+    "Skill": {
+      "type": "object",
+      "required": ["id", "name", "description", "category", "source"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique skill identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Skill display name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed skill description"
+        },
+        "shortDescription": {
+          "type": "string",
+          "description": "Brief skill summary"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category ID this skill belongs to"
+        },
+        "author": {
+          "type": "string",
+          "description": "Skill author or maintainer"
+        },
+        "version": {
+          "type": "string",
+          "description": "Skill version"
+        },
+        "triggers": {
+          "type": "array",
+          "description": "Keywords that trigger this skill",
+          "items": {
+            "type": "string"
+          }
+        },
+        "complexity": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced"],
+          "description": "Skill complexity level"
+        },
+        "platforms": {
+          "type": "array",
+          "description": "Supported platforms",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "object",
+          "required": ["repo", "path"],
+          "properties": {
+            "repo": {
+              "type": "string",
+              "description": "GitHub repository URL"
+            },
+            "path": {
+              "type": "string",
+              "description": "Path to skill file in repository"
+            },
+            "branch": {
+              "type": "string",
+              "description": "Repository branch",
+              "default": "main"
+            }
+          }
+        },
+        "install": {
+          "type": "object",
+          "properties": {
+            "submodule": {
+              "type": "string",
+              "description": "Git submodule path"
+            },
+            "rawUrl": {
+              "type": "string",
+              "description": "Direct download URL"
+            }
+          }
+        },
+        "scripts": {
+          "type": "array",
+          "description": "Associated scripts",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "featured": {
+          "type": "boolean",
+          "description": "Whether skill is featured",
+          "default": false
+        },
+        "tags": {
+          "type": "array",
+          "description": "Skill tags",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
