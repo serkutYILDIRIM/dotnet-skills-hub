@@ -1,0 +1,22 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  icon: string;
+  count: number;
+  description: string;
+}
+
+const { id, name, icon, count, description } = Astro.props;
+---
+
+<a href={`/categories/${id}/`} class="category-card">
+  <div class="category-header">
+    <div class="category-title">
+      <span class="category-icon">{icon}</span>
+      <span>{name}</span>
+    </div>
+    <span class="category-count">{count}</span>
+  </div>
+  <p class="category-description">{description}</p>
+</a>

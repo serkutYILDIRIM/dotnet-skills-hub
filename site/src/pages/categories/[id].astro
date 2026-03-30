@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SkillCard from '../../components/SkillCard.astro';
+import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
+export async function getStaticPaths() {
+  let categories: any[] = [];
+  let skills: any[] = [];
+
+  try {
+    const dataPath = join(process.cwd(), 'src', 'data', 'skills.json');
+    if (existsSync(dataPath)) {
+      const content = readFileSync(dataPath, 'utf-8');
+      const skillsData = JSON.parse(content);
+      categories = skillsData.categories || [];
+      skills = skillsData.skills || [];
+    }
+  } catch (error) {
+    console.error('Failed to load skills data:', error);
+  }
+
+  return categories.map((category) => {
+    const categorySkills = skills.filter(skill => skill.category === category.id);
+    return {
+      params: { id: category.id },
+      props: { category, skills: categorySkills }
+    };
+  });
+}
+
+const { category, skills } = Astro.props;
+---
+
+<Layout title={`${category.name} - .NET Skills Hub`}>
+  <a href="/" class="back-link">
+    ← Back to Home
+  </a>
+
+  <div class="detail-header">
+    <div>
+      <h1>
+        <span style="font-size: 2rem; margin-right: 0.5rem;">{category.icon}</span>
+        {category.name}
+      </h1>
+      <p class="text-secondary" style="font-size: 1.1rem; margin-top: 1rem;">
+        {category.description}
+      </p>
+      <p class="text-secondary" style="margin-top: 0.5rem;">
+        {skills.length} skill{skills.length !== 1 ? 's' : ''} available
+      </p>
+    </div>
+  </div>
+
+  <div class="detail-content">
+    {skills.length > 0 ? (
+      <div class="grid">
+        {skills.map((skill: any) => (
+          <SkillCard skill={skill} />
+        ))}
+      </div>
+    ) : (
+      <div class="card text-center" style="padding: 3rem;">
+        <p class="text-secondary">No skills found in this category yet.</p>
+      </div>
+    )}
+  </div>
+</Layout>
