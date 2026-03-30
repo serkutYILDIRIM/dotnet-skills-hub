@@ -1,0 +1,78 @@
+name: Enrich Skills
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Maximum number of skills to enrich'
+        required: false
+        default: '10'
+        type: string
+      force:
+        description: 'Force re-enrichment of all skills'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    name: Enrich Skills with AI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Enrich skills
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ENRICH_ARGS="--limit ${{ inputs.limit }}"
+          if [ "${{ inputs.force }}" == "true" ]; then
+            ENRICH_ARGS="$ENRICH_ARGS --force"
+          fi
+          npm run enrich -- $ENRICH_ARGS
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet HEAD skills/registry.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add skills/registry.json
+          git commit -m "chore: enrich skills with AI metadata
+
+          - Enriched up to ${{ inputs.limit }} skills
+          - Force mode: ${{ inputs.force }}
+
+          🤖 Generated with Claude Code
+
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+          git push
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.check_changes.outputs.has_changes }}" == "true" ]; then
+            echo "✅ Skills enriched and committed"
+          else
+            echo "ℹ️ No changes detected"
+          fi

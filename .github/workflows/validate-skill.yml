@@ -1,0 +1,104 @@
+name: Validate Skill
+
+on:
+  pull_request:
+    paths:
+      - 'skills/registry.json'
+
+jobs:
+  validate:
+    name: Validate Registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install AJV CLI
+        run: npm install -g ajv-cli
+
+      - name: Validate JSON schema
+        run: |
+          ajv validate \
+            --spec=draft7 \
+            -s skills/schema.json \
+            -d skills/registry.json
+
+      - name: Check for duplicate skill IDs
+        run: |
+          node -e "
+          const fs = require('fs');
+          const registry = JSON.parse(fs.readFileSync('skills/registry.json', 'utf-8'));
+          const ids = new Map();
+          let hasDuplicates = false;
+
+          registry.skills.forEach((skill, index) => {
+            if (ids.has(skill.id)) {
+              console.error(\`Duplicate skill ID found: \${skill.id} (index \${index} and \${ids.get(skill.id)})\`);
+              hasDuplicates = true;
+            } else {
+              ids.set(skill.id, index);
+            }
+          });
+
+          if (hasDuplicates) {
+            process.exit(1);
+          } else {
+            console.log('No duplicate skill IDs found.');
+          }
+          "
+
+      - name: Validate skill fields
+        run: |
+          node -e "
+          const fs = require('fs');
+          const registry = JSON.parse(fs.readFileSync('skills/registry.json', 'utf-8'));
+          let hasErrors = false;
+
+          registry.skills.forEach((skill, index) => {
+            // Check required fields
+            if (!skill.id || !skill.name || !skill.description || !skill.category || !skill.source) {
+              console.error(\`Skill at index \${index} is missing required fields\`);
+              hasErrors = true;
+            }
+
+            // Check description length (100-300 chars)
+            if (skill.description && (skill.description.length < 100 || skill.description.length > 300)) {
+              console.error(\`Skill '\${skill.id}' description must be between 100-300 characters (current: \${skill.description.length})\`);
+              hasErrors = true;
+            }
+
+            // Check shortDescription length (50-80 chars)
+            if (skill.shortDescription && (skill.shortDescription.length < 50 || skill.shortDescription.length > 80)) {
+              console.warn(\`Skill '\${skill.id}' shortDescription should be between 50-80 characters (current: \${skill.shortDescription.length})\`);
+            }
+
+            // Check triggers count (3-5 recommended)
+            if (skill.triggers && (skill.triggers.length < 3 || skill.triggers.length > 5)) {
+              console.warn(\`Skill '\${skill.id}' should have 3-5 triggers (current: \${skill.triggers.length})\`);
+            }
+
+            // Check complexity values
+            if (skill.complexity && !['beginner', 'intermediate', 'advanced'].includes(skill.complexity)) {
+              console.error(\`Skill '\${skill.id}' has invalid complexity: \${skill.complexity}\`);
+              hasErrors = true;
+            }
+          });
+
+          if (hasErrors) {
+            process.exit(1);
+          } else {
+            console.log('All skills validated successfully.');
+          }
+          "
+
+      - name: Summary
+        if: success()
+        run: echo "✅ Registry validation passed!"

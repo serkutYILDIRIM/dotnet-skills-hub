@@ -1,0 +1,306 @@
+#!/usr/bin/env bash
+# gh-dotnet-skills-hub — GitHub CLI extension for installing Copilot .NET skills
+#
+# Usage:
+#   gh dotnet-skills-hub install <skill-name>
+#   gh dotnet-skills-hub search  <query>
+#   gh dotnet-skills-hub list
+#   gh dotnet-skills-hub info    <skill-name>
+#   gh dotnet-skills-hub remove  <skill-name>
+#
+# Environment:
+#   SKILLS_HUB_URL   Override the skills.json URL
+
+set -euo pipefail
+
+# ── Configuration ────────────────────────────────────────────────────────────
+
+SKILLS_HUB_URL="${SKILLS_HUB_URL:-https://dotnet-skills-hub.github.io/data/skills.json}"
+SKILLS_DIR="${HOME}/.config/github-copilot/skills"
+CACHE_DIR="${HOME}/.cache/gh-dotnet-skills-hub"
+CACHE_FILE="${CACHE_DIR}/skills.json"
+CACHE_TTL=3600
+
+# ── Colors ───────────────────────────────────────────────────────────────────
+
+if [[ -t 1 ]]; then
+  COLOR_RESET='\033[0m'
+  COLOR_RED='\033[0;31m'
+  COLOR_GREEN='\033[0;32m'
+  COLOR_YELLOW='\033[0;33m'
+  COLOR_BLUE='\033[0;34m'
+  COLOR_PURPLE='\033[0;35m'
+  COLOR_CYAN='\033[0;36m'
+  COLOR_BOLD='\033[1m'
+else
+  COLOR_RESET=''
+  COLOR_RED=''
+  COLOR_GREEN=''
+  COLOR_YELLOW=''
+  COLOR_BLUE=''
+  COLOR_PURPLE=''
+  COLOR_CYAN=''
+  COLOR_BOLD=''
+fi
+
+# ── Helpers ──────────────────────────────────────────────────────────────────
+
+die() {
+  echo -e "${COLOR_RED}Error:${COLOR_RESET} $*" >&2
+  exit 1
+}
+
+info() {
+  echo -e "${COLOR_BLUE}Info:${COLOR_RESET} $*"
+}
+
+success() {
+  echo -e "${COLOR_GREEN}Success:${COLOR_RESET} $*"
+}
+
+warn() {
+  echo -e "${COLOR_YELLOW}Warning:${COLOR_RESET} $*"
+}
+
+need_cmd() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    die "Required command not found: $1"
+  fi
+}
+
+# ── Fetch Skills Data ────────────────────────────────────────────────────────
+
+fetch_skills_data() {
+  mkdir -p "${CACHE_DIR}"
+
+  if [[ -f "${CACHE_FILE}" ]]; then
+    local cache_age=$(( $(date +%s) - $(stat -c %Y "${CACHE_FILE}" 2>/dev/null || stat -f %m "${CACHE_FILE}" 2>/dev/null || echo 0) ))
+    if [[ ${cache_age} -lt ${CACHE_TTL} ]]; then
+      cat "${CACHE_FILE}"
+      return 0
+    fi
+  fi
+
+  info "Fetching skills data from ${SKILLS_HUB_URL}..."
+
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "${SKILLS_HUB_URL}" -o "${CACHE_FILE}" || die "Failed to fetch skills data"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -q -O "${CACHE_FILE}" "${SKILLS_HUB_URL}" || die "Failed to fetch skills data"
+  else
+    die "Neither curl nor wget found. Please install one of them."
+  fi
+
+  cat "${CACHE_FILE}"
+}
+
+# ── JSON Query ───────────────────────────────────────────────────────────────
+
+json_query() {
+  need_cmd python3
+  python3 -c "
+import json
+import sys
+
+data = json.load(sys.stdin)
+query = sys.argv[1] if len(sys.argv) > 1 else ''
+
+if query == 'skills':
+    for skill in data.get('skills', []):
+        print(skill.get('id', ''))
+elif query == 'categories':
+    for cat in data.get('categories', []):
+        print(f\"{cat.get('icon', '')} {cat.get('id', '')} - {cat.get('name', '')}\")
+elif query.startswith('skill:'):
+    skill_id = query.split(':', 1)[1]
+    for skill in data.get('skills', []):
+        if skill.get('id') == skill_id:
+            print(json.dumps(skill, indent=2))
+            break
+elif query.startswith('search:'):
+    search_term = query.split(':', 1)[1].lower()
+    for skill in data.get('skills', []):
+        name = skill.get('name', '').lower()
+        desc = skill.get('description', '').lower()
+        category = skill.get('category', '').lower()
+        if search_term in name or search_term in desc or search_term in category:
+            print(f\"{skill.get('id', '')} - {skill.get('name', '')}\")
+else:
+    print(json.dumps(data, indent=2))
+" "$@"
+}
+
+# ── Commands ─────────────────────────────────────────────────────────────────
+
+cmd_list() {
+  echo -e "${COLOR_BOLD}Available .NET Skills:${COLOR_RESET}\n"
+
+  local data=$(fetch_skills_data)
+
+  echo "${data}" | json_query categories
+  echo ""
+  echo -e "${COLOR_CYAN}Use 'gh dotnet-skills-hub search <query>' to filter skills${COLOR_RESET}"
+}
+
+cmd_search() {
+  local query="${1:-}"
+
+  if [[ -z "${query}" ]]; then
+    die "Usage: gh dotnet-skills-hub search <query>"
+  fi
+
+  echo -e "${COLOR_BOLD}Searching for '${query}'...${COLOR_RESET}\n"
+
+  local data=$(fetch_skills_data)
+  local results=$(echo "${data}" | json_query "search:${query}")
+
+  if [[ -z "${results}" ]]; then
+    warn "No skills found matching '${query}'"
+    exit 0
+  fi
+
+  echo "${results}"
+}
+
+cmd_info() {
+  local skill_id="${1:-}"
+
+  if [[ -z "${skill_id}" ]]; then
+    die "Usage: gh dotnet-skills-hub info <skill-name>"
+  fi
+
+  local data=$(fetch_skills_data)
+  local skill=$(echo "${data}" | json_query "skill:${skill_id}")
+
+  if [[ -z "${skill}" || "${skill}" == "null" ]]; then
+    die "Skill not found: ${skill_id}"
+  fi
+
+  echo -e "${COLOR_BOLD}Skill Information:${COLOR_RESET}\n"
+  echo "${skill}"
+}
+
+cmd_install() {
+  local skill_id="${1:-}"
+
+  if [[ -z "${skill_id}" ]]; then
+    die "Usage: gh dotnet-skills-hub install <skill-name>"
+  fi
+
+  info "Installing skill: ${skill_id}"
+
+  local data=$(fetch_skills_data)
+  local skill=$(echo "${data}" | json_query "skill:${skill_id}")
+
+  if [[ -z "${skill}" || "${skill}" == "null" ]]; then
+    die "Skill not found: ${skill_id}"
+  fi
+
+  mkdir -p "${SKILLS_DIR}/${skill_id}"
+
+  local repo=$(echo "${skill}" | python3 -c "import json, sys; print(json.load(sys.stdin).get('source', {}).get('repo', ''))")
+  local path=$(echo "${skill}" | python3 -c "import json, sys; print(json.load(sys.stdin).get('source', {}).get('path', ''))")
+  local branch=$(echo "${skill}" | python3 -c "import json, sys; print(json.load(sys.stdin).get('source', {}).get('branch', 'main'))")
+
+  if [[ -z "${repo}" || -z "${path}" ]]; then
+    die "Invalid skill source configuration"
+  fi
+
+  local raw_url="${repo/github.com/raw.githubusercontent.com}/${branch}/${path}"
+
+  info "Downloading from: ${raw_url}"
+
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "${raw_url}" -o "${SKILLS_DIR}/${skill_id}/SKILL.md" || die "Failed to download skill file"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -q -O "${SKILLS_DIR}/${skill_id}/SKILL.md" "${raw_url}" || die "Failed to download skill file"
+  else
+    die "Neither curl nor wget found"
+  fi
+
+  success "Skill '${skill_id}' installed to ${SKILLS_DIR}/${skill_id}"
+}
+
+cmd_remove() {
+  local skill_id="${1:-}"
+
+  if [[ -z "${skill_id}" ]]; then
+    die "Usage: gh dotnet-skills-hub remove <skill-name>"
+  fi
+
+  local skill_dir="${SKILLS_DIR}/${skill_id}"
+
+  if [[ ! -d "${skill_dir}" ]]; then
+    die "Skill not installed: ${skill_id}"
+  fi
+
+  rm -rf "${skill_dir}"
+  success "Skill '${skill_id}' removed"
+}
+
+cmd_help() {
+  cat <<EOF
+${COLOR_BOLD}gh-dotnet-skills-hub${COLOR_RESET} — GitHub CLI extension for .NET Copilot skills
+
+${COLOR_BOLD}USAGE:${COLOR_RESET}
+  gh dotnet-skills-hub <command> [arguments]
+
+${COLOR_BOLD}COMMANDS:${COLOR_RESET}
+  list              List all available .NET skills
+  search <query>    Search for skills by name, description, or category
+  info <skill>      Show detailed information about a skill
+  install <skill>   Install a skill to your local environment
+  remove <skill>    Remove an installed skill
+  help              Show this help message
+
+${COLOR_BOLD}EXAMPLES:${COLOR_RESET}
+  gh dotnet-skills-hub list
+  gh dotnet-skills-hub search async
+  gh dotnet-skills-hub info dotnet-dependency-injection
+  gh dotnet-skills-hub install dotnet-dependency-injection
+  gh dotnet-skills-hub remove dotnet-dependency-injection
+
+${COLOR_BOLD}ENVIRONMENT:${COLOR_RESET}
+  SKILLS_HUB_URL    Override the skills.json URL
+                    Default: https://dotnet-skills-hub.github.io/data/skills.json
+
+${COLOR_BOLD}MORE INFO:${COLOR_RESET}
+  https://github.com/dotnet-skills-hub/dotnet-skills-hub
+EOF
+}
+
+# ── Main ─────────────────────────────────────────────────────────────────────
+
+main() {
+  local command="${1:-help}"
+
+  case "${command}" in
+    list)
+      cmd_list
+      ;;
+    search)
+      shift
+      cmd_search "$@"
+      ;;
+    info)
+      shift
+      cmd_info "$@"
+      ;;
+    install)
+      shift
+      cmd_install "$@"
+      ;;
+    remove)
+      shift
+      cmd_remove "$@"
+      ;;
+    help|--help|-h)
+      cmd_help
+      ;;
+    *)
+      die "Unknown command: ${command}. Use 'gh dotnet-skills-hub help' for usage."
+      ;;
+  esac
+}
+
+main "$@"
