@@ -1,0 +1,590 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-29T00:00:00Z",
+  "categories": [
+    {
+      "id": "dotnet-core",
+      "name": ".NET Core & Fundamentals",
+      "icon": "🔷",
+      "description": "C# syntax, LINQ, async/await, dependency injection"
+    },
+    {
+      "id": "aspnet-web",
+      "name": "ASP.NET & Web APIs",
+      "icon": "🌐",
+      "description": "REST APIs, Minimal APIs, Blazor, SignalR"
+    },
+    {
+      "id": "ef-data",
+      "name": "Entity Framework & Data",
+      "icon": "🗄️",
+      "description": "EF Core, migrations, LINQ to SQL, Dapper"
+    },
+    {
+      "id": "testing",
+      "name": "Testing & Quality",
+      "icon": "🧪",
+      "description": "xUnit, NUnit, MSTest, Moq, FluentAssertions"
+    },
+    {
+      "id": "msbuild-build",
+      "name": "MSBuild & Build System",
+      "icon": "🔧",
+      "description": "Project files, build optimization, NuGet packages"
+    },
+    {
+      "id": "dotnet-nuget",
+      "name": "NuGet & Package Management",
+      "icon": "📦",
+      "description": "NuGet packages, dependency management, versioning"
+    },
+    {
+      "id": "dotnet-upgrade",
+      "name": "Migration & Upgrade",
+      "icon": "⬆️",
+      "description": "Framework migration, .NET 6→8→10, API compat"
+    },
+    {
+      "id": "dotnet-maui",
+      "name": ".NET MAUI & Mobile",
+      "icon": "📱",
+      "description": "Cross-platform UI, XAML, mobile development"
+    },
+    {
+      "id": "dotnet-ai",
+      "name": "AI & ML with .NET",
+      "icon": "🤖",
+      "description": "ML.NET, Semantic Kernel, LLM integration, MCP"
+    },
+    {
+      "id": "dotnet-diag",
+      "name": "Diagnostics & Performance",
+      "icon": "🔍",
+      "description": "Performance investigations, debugging, incident analysis"
+    },
+    {
+      "id": "dotnet-template",
+      "name": "Template Engine & Scaffolding",
+      "icon": "🏗️",
+      "description": "Template discovery, project scaffolding, template authoring"
+    },
+    {
+      "id": "security",
+      "name": "Security & Auth",
+      "icon": "🔒",
+      "description": "Identity, OAuth, OWASP, secure coding"
+    }
+  ],
+  "skills": [
+    {
+      "id": "dotnet-dependency-injection",
+      "name": ".NET Dependency Injection",
+      "description": "Master dependency injection patterns in .NET Core applications, including service lifetimes (Transient, Scoped, Singleton), constructor injection, and best practices for building loosely coupled, testable applications with Microsoft.Extensions.DependencyInjection.",
+      "shortDescription": "Learn DI patterns, service lifetimes, and IoC container usage",
+      "category": "dotnet-core",
+      "author": "dotnet-community",
+      "triggers": ["dependency injection", "DI", "IoC", "service registration"],
+      "complexity": "intermediate",
+      "featured": true,
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-dependency-injection/SKILL.md"
+      }
+    },
+    {
+      "id": "csharp-async-await-patterns",
+      "name": "C# Async/Await Patterns",
+      "description": "Understand asynchronous programming in C# with async/await keywords, Task and ValueTask patterns, ConfigureAwait usage, handling async exceptions, cancellation tokens, and avoiding common pitfalls like async void and deadlocks.",
+      "shortDescription": "Master async/await, Task patterns, and async best practices",
+      "category": "dotnet-core",
+      "author": "dotnet-community",
+      "triggers": ["async", "await", "asynchronous", "Task"],
+      "complexity": "intermediate",
+      "featured": true,
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "csharp-async-await-patterns/SKILL.md"
+      }
+    },
+    {
+      "id": "linq-query-optimization",
+      "name": "LINQ Query Optimization",
+      "description": "Optimize LINQ queries for performance by understanding deferred execution, avoiding unnecessary enumerations, using appropriate query operators, leveraging indexed collections, and recognizing when to use LINQ to Objects vs. LINQ to SQL patterns.",
+      "shortDescription": "Optimize LINQ queries and understand execution patterns",
+      "category": "dotnet-core",
+      "author": "dotnet-community",
+      "triggers": ["LINQ", "query optimization", "performance", "IEnumerable"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "linq-query-optimization/SKILL.md"
+      }
+    },
+    {
+      "id": "aspnet-minimal-api",
+      "name": "ASP.NET Minimal APIs",
+      "description": "Build lightweight, high-performance web APIs using ASP.NET Core Minimal APIs. Learn endpoint routing, parameter binding, dependency injection in endpoints, validation, OpenAPI integration, and when to choose Minimal APIs over traditional controllers.",
+      "shortDescription": "Create lightweight web APIs with Minimal API approach",
+      "category": "aspnet-web",
+      "author": "dotnet-community",
+      "triggers": ["minimal api", "web api", "endpoint", "MapGet"],
+      "complexity": "beginner",
+      "featured": true,
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "aspnet-minimal-api/SKILL.md"
+      }
+    },
+    {
+      "id": "blazor-component-patterns",
+      "name": "Blazor Component Patterns",
+      "description": "Master Blazor component development with patterns for state management, component parameters, event callbacks, cascading values, component lifecycle methods, and building reusable UI components for both Blazor Server and WebAssembly applications.",
+      "shortDescription": "Build reusable Blazor components with proper patterns",
+      "category": "aspnet-web",
+      "author": "dotnet-community",
+      "triggers": ["blazor", "component", "razor", "WebAssembly"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "blazor-component-patterns/SKILL.md"
+      }
+    },
+    {
+      "id": "signalr-realtime-setup",
+      "name": "SignalR Real-time Setup",
+      "description": "Implement real-time communication in .NET applications using SignalR. Learn hub configuration, connection management, client-server messaging, group management, authentication, scaling with Redis backplane, and troubleshooting connection issues.",
+      "shortDescription": "Set up real-time communication with SignalR hubs",
+      "category": "aspnet-web",
+      "author": "dotnet-community",
+      "triggers": ["signalr", "real-time", "websocket", "hub"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "signalr-realtime-setup/SKILL.md"
+      }
+    },
+    {
+      "id": "ef-core-migrations",
+      "name": "Entity Framework Core Migrations",
+      "description": "Manage database schema changes with EF Core migrations. Learn to create, apply, and rollback migrations, handle migration conflicts, seed data, use code-first and database-first approaches, and maintain migrations across multiple environments and teams.",
+      "shortDescription": "Manage database schemas with EF Core migrations",
+      "category": "ef-data",
+      "author": "dotnet-community",
+      "triggers": ["ef core", "migrations", "database", "schema"],
+      "complexity": "intermediate",
+      "featured": true,
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "ef-core-migrations/SKILL.md"
+      }
+    },
+    {
+      "id": "ef-core-query-performance",
+      "name": "EF Core Query Performance",
+      "description": "Optimize Entity Framework Core queries for maximum performance. Learn to use AsNoTracking, eager loading with Include, projection with Select, avoid N+1 queries, analyze query plans, use compiled queries, and leverage split queries for collections.",
+      "shortDescription": "Optimize EF Core queries and avoid performance pitfalls",
+      "category": "ef-data",
+      "author": "dotnet-community",
+      "triggers": ["ef core", "performance", "query optimization", "AsNoTracking"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "ef-core-query-performance/SKILL.md"
+      }
+    },
+    {
+      "id": "dapper-data-access",
+      "name": "Dapper Data Access",
+      "description": "Implement high-performance data access with Dapper micro-ORM. Learn SQL parameterization, object mapping, multi-mapping for joins, stored procedure execution, bulk operations, and when to choose Dapper over Entity Framework for specific scenarios.",
+      "shortDescription": "Use Dapper micro-ORM for efficient data access",
+      "category": "ef-data",
+      "author": "dotnet-community",
+      "triggers": ["dapper", "micro-orm", "sql", "data access"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dapper-data-access/SKILL.md"
+      }
+    },
+    {
+      "id": "xunit-test-patterns",
+      "name": "xUnit Test Patterns",
+      "description": "Write effective unit tests with xUnit testing framework. Learn test organization with Facts and Theories, parameterized tests with InlineData, test fixtures for setup/teardown, assertion best practices, and structuring tests with Arrange-Act-Assert pattern.",
+      "shortDescription": "Write clean, maintainable unit tests with xUnit",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["xunit", "unit test", "testing", "fact", "theory"],
+      "complexity": "beginner",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "xunit-test-patterns/SKILL.md"
+      }
+    },
+    {
+      "id": "moq-mocking-strategies",
+      "name": "Moq Mocking Strategies",
+      "description": "Master mocking dependencies with Moq framework. Learn to create mock objects, setup method behaviors, verify interactions, use callbacks, handle async methods, mock interfaces vs. classes, and apply mocking best practices for isolated unit testing.",
+      "shortDescription": "Create effective mocks with Moq for unit testing",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["moq", "mocking", "mock", "unit test"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "moq-mocking-strategies/SKILL.md"
+      }
+    },
+    {
+      "id": "integration-test-webappfactory",
+      "name": "Integration Tests with WebApplicationFactory",
+      "description": "Build robust integration tests for ASP.NET Core applications using WebApplicationFactory. Learn to test entire request pipelines, mock external dependencies, configure test databases, handle authentication, and ensure end-to-end functionality.",
+      "shortDescription": "Test ASP.NET apps end-to-end with WebApplicationFactory",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["integration test", "WebApplicationFactory", "testing", "e2e"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "integration-test-webappfactory/SKILL.md"
+      }
+    },
+    {
+      "id": "msbuild-failure-diagnosis",
+      "name": "MSBuild Failure Diagnosis",
+      "description": "Diagnose and resolve MSBuild compilation failures. Learn to interpret error messages, enable diagnostic logging, understand project file structure, resolve dependency conflicts, fix SDK-style project issues, and troubleshoot common build problems.",
+      "shortDescription": "Diagnose and fix MSBuild compilation errors",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["msbuild", "build error", "compilation", "diagnosis"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "msbuild-failure-diagnosis/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-build-optimization",
+      "name": ".NET Build Optimization",
+      "description": "Optimize .NET build performance for faster development cycles. Learn incremental builds, parallel compilation, output caching, reducing unnecessary rebuilds, optimizing NuGet restore, and configuring build properties for maximum efficiency.",
+      "shortDescription": "Speed up .NET builds with optimization techniques",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["build optimization", "performance", "compilation speed"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-build-optimization/SKILL.md"
+      }
+    },
+    {
+      "id": "msbuild-project-modernization",
+      "name": "MSBuild Project Modernization",
+      "description": "Modernize legacy .NET Framework projects to SDK-style project files. Learn to convert csproj files, simplify project structure, adopt PackageReference over packages.config, enable central package management, and leverage modern MSBuild features.",
+      "shortDescription": "Convert legacy projects to modern SDK-style format",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["project modernization", "sdk-style", "csproj", "migration"],
+      "complexity": "intermediate",
+      "featured": true,
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "msbuild-project-modernization/SKILL.md"
+      }
+    },
+    {
+      "id": "nuget-package-management",
+      "name": "NuGet Package Management",
+      "description": "Effectively manage NuGet packages in .NET projects. Learn package installation, version constraints, package sources, resolving conflicts, using package lock files, managing transitive dependencies, and implementing central package management for solutions.",
+      "shortDescription": "Manage NuGet dependencies and resolve conflicts",
+      "category": "dotnet-nuget",
+      "author": "dotnet-community",
+      "triggers": ["nuget", "package", "dependency", "version"],
+      "complexity": "beginner",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "nuget-package-management/SKILL.md"
+      }
+    },
+    {
+      "id": "nuget-dependency-audit",
+      "name": "NuGet Dependency Audit",
+      "description": "Audit NuGet dependencies for security vulnerabilities and license compliance. Learn to use dotnet list package --vulnerable, analyze transitive dependencies, understand CVE reports, update vulnerable packages, and implement automated dependency scanning.",
+      "shortDescription": "Audit packages for vulnerabilities and compliance",
+      "category": "dotnet-nuget",
+      "author": "dotnet-community",
+      "triggers": ["security audit", "vulnerable packages", "cve", "compliance"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "nuget-dependency-audit/SKILL.md"
+      }
+    },
+    {
+      "id": "nuget-package-authoring",
+      "name": "NuGet Package Authoring",
+      "description": "Create and publish custom NuGet packages. Learn package metadata configuration, semantic versioning, creating .nuspec files, including content and dependencies, packaging with dotnet pack, publishing to NuGet.org or private feeds, and maintaining packages.",
+      "shortDescription": "Author and publish custom NuGet packages",
+      "category": "dotnet-nuget",
+      "author": "dotnet-community",
+      "triggers": ["package authoring", "nuget publish", "nuspec", "dotnet pack"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "nuget-package-authoring/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-8-to-10-migration",
+      "name": ".NET 8 to .NET 10 Migration",
+      "description": "Migrate applications from .NET 8 to .NET 10. Learn about breaking changes, new features, updated APIs, performance improvements, deprecations, target framework updates, testing strategies, and ensuring compatibility with dependencies and tools.",
+      "shortDescription": "Upgrade projects from .NET 8 to .NET 10",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["migration", ".net 10", "upgrade", "modernization"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-8-to-10-migration/SKILL.md"
+      }
+    },
+    {
+      "id": "framework-to-core-migration",
+      "name": ".NET Framework to .NET Core Migration",
+      "description": "Migrate legacy .NET Framework applications to modern .NET Core/.NET. Learn compatibility analysis with Portability Analyzer, addressing API differences, replacing unsupported libraries, updating project files, handling Windows-specific dependencies.",
+      "shortDescription": "Migrate .NET Framework apps to modern .NET",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["framework migration", "net framework", "portability", "modernization"],
+      "complexity": "advanced",
+      "featured": true,
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "framework-to-core-migration/SKILL.md"
+      }
+    },
+    {
+      "id": "api-compatibility-check",
+      "name": "API Compatibility Check",
+      "description": "Ensure API compatibility when upgrading .NET versions. Learn to use API analyzers, understand breaking changes, detect obsolete APIs, validate platform-specific code, use CompatibilitySuppressions, and maintain backward compatibility in libraries.",
+      "shortDescription": "Check API compatibility across .NET versions",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["api compatibility", "breaking changes", "obsolete", "analyzer"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "api-compatibility-check/SKILL.md"
+      }
+    },
+    {
+      "id": "maui-environment-setup",
+      "name": ".NET MAUI Environment Setup",
+      "description": "Set up development environment for .NET MAUI cross-platform applications. Learn workload installation, Android SDK configuration, iOS/Mac requirements, emulator setup, device debugging, troubleshooting build issues, and configuring development machines.",
+      "shortDescription": "Configure .NET MAUI development environment",
+      "category": "dotnet-maui",
+      "author": "dotnet-community",
+      "triggers": ["maui setup", "environment", "android", "ios", "workload"],
+      "complexity": "beginner",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "maui-environment-setup/SKILL.md"
+      }
+    },
+    {
+      "id": "maui-mvvm-architecture",
+      "name": ".NET MAUI MVVM Architecture",
+      "description": "Implement Model-View-ViewModel architecture in .NET MAUI applications. Learn data binding, commands, ObservableCollection usage, CommunityToolkit.Mvvm helpers, navigation patterns, dependency injection in ViewModels, and separating UI from business logic.",
+      "shortDescription": "Build MAUI apps with MVVM pattern",
+      "category": "dotnet-maui",
+      "author": "dotnet-community",
+      "triggers": ["maui mvvm", "data binding", "viewmodel", "architecture"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "maui-mvvm-architecture/SKILL.md"
+      }
+    },
+    {
+      "id": "maui-platform-specific-code",
+      "name": ".NET MAUI Platform-Specific Code",
+      "description": "Implement platform-specific functionality in .NET MAUI apps using conditional compilation, platform interfaces, partial classes, and dependency injection. Learn to access native APIs, handle platform differences, and maintain shared code architecture.",
+      "shortDescription": "Handle platform-specific code in MAUI apps",
+      "category": "dotnet-maui",
+      "author": "dotnet-community",
+      "triggers": ["platform specific", "maui", "native api", "conditional"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "maui-platform-specific-code/SKILL.md"
+      }
+    },
+    {
+      "id": "semantic-kernel-integration",
+      "name": "Semantic Kernel Integration",
+      "description": "Integrate Microsoft Semantic Kernel for AI orchestration in .NET applications. Learn to create semantic functions, manage prompts, chain AI capabilities, use plugins, handle context variables, integrate with OpenAI/Azure OpenAI, and build intelligent agents.",
+      "shortDescription": "Integrate Semantic Kernel for AI orchestration",
+      "category": "dotnet-ai",
+      "author": "dotnet-community",
+      "triggers": ["semantic kernel", "ai", "llm", "openai"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "semantic-kernel-integration/SKILL.md"
+      }
+    },
+    {
+      "id": "mlnet-model-training",
+      "name": "ML.NET Model Training",
+      "description": "Train machine learning models using ML.NET framework. Learn data loading, feature engineering, algorithm selection, model training, evaluation metrics, hyperparameter tuning, model persistence, and deploying trained models in .NET applications.",
+      "shortDescription": "Train and deploy ML models with ML.NET",
+      "category": "dotnet-ai",
+      "author": "dotnet-community",
+      "triggers": ["ml.net", "machine learning", "model training", "ai"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "mlnet-model-training/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-mcp-server-development",
+      "name": ".NET MCP Server Development",
+      "description": "Build Model Context Protocol (MCP) servers in .NET to extend AI assistants with custom tools and context. Learn MCP architecture, implementing tools and resources, handling prompts, server lifecycle management, and integrating with Claude and other AI platforms.",
+      "shortDescription": "Create MCP servers to extend AI assistants",
+      "category": "dotnet-ai",
+      "author": "dotnet-community",
+      "triggers": ["mcp", "model context protocol", "ai tools", "claude"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-mcp-server-development/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-performance-profiling",
+      "name": ".NET Performance Profiling",
+      "description": "Profile .NET applications to identify performance bottlenecks. Learn to use dotnet-trace, dotnet-counters, PerfView, Visual Studio profiler, analyze CPU usage, memory allocations, garbage collection, identify hot paths, and optimize critical code sections.",
+      "shortDescription": "Profile and optimize .NET application performance",
+      "category": "dotnet-diag",
+      "author": "dotnet-community",
+      "triggers": ["profiling", "performance", "diagnostics", "optimization"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-performance-profiling/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-memory-diagnostics",
+      "name": ".NET Memory Diagnostics",
+      "description": "Diagnose memory issues in .NET applications including memory leaks, high allocation rates, and heap fragmentation. Learn to capture and analyze memory dumps with dotnet-dump, use dotnet-gcdump for GC analysis, identify retention paths, and fix memory problems.",
+      "shortDescription": "Diagnose and fix memory leaks and issues",
+      "category": "dotnet-diag",
+      "author": "dotnet-community",
+      "triggers": ["memory leak", "diagnostics", "heap", "gc", "dump"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-memory-diagnostics/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-incident-analysis",
+      "name": ".NET Incident Analysis",
+      "description": "Analyze production incidents in .NET applications using diagnostic tools and logs. Learn to collect crash dumps, analyze stack traces, correlate telemetry data, use Application Insights, identify root causes, implement fixes, and prevent recurring issues.",
+      "shortDescription": "Investigate and resolve production incidents",
+      "category": "dotnet-diag",
+      "author": "dotnet-community",
+      "triggers": ["incident", "production issue", "crash", "debugging"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-incident-analysis/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-template-discovery",
+      "name": ".NET Template Discovery",
+      "description": "Discover and evaluate .NET project templates. Learn to search templates with dotnet new search, list installed templates, understand template metadata, filter by tags and types, install templates from NuGet, and select appropriate templates for projects.",
+      "shortDescription": "Find and evaluate .NET project templates",
+      "category": "dotnet-template",
+      "author": "dotnet-community",
+      "triggers": ["template discovery", "dotnet new", "project template"],
+      "complexity": "beginner",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-template-discovery/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-project-scaffolding",
+      "name": ".NET Project Scaffolding",
+      "description": "Scaffold new .NET projects using templates and customize initial structure. Learn dotnet new commands, template parameters, creating solution structures, adding projects, configuring references, setting up common patterns, and accelerating project initialization.",
+      "shortDescription": "Scaffold projects with dotnet new templates",
+      "category": "dotnet-template",
+      "author": "dotnet-community",
+      "triggers": ["scaffolding", "project creation", "dotnet new", "template"],
+      "complexity": "beginner",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-project-scaffolding/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-template-authoring",
+      "name": ".NET Template Authoring",
+      "description": "Create custom .NET templates for project scaffolding. Learn template.json configuration, symbols and parameters, conditional content, post-actions, packaging templates as NuGet packages, publishing to template feeds, and maintaining reusable project templates.",
+      "shortDescription": "Author custom .NET project templates",
+      "category": "dotnet-template",
+      "author": "dotnet-community",
+      "triggers": ["template authoring", "template.json", "custom template"],
+      "complexity": "advanced",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-template-authoring/SKILL.md"
+      }
+    },
+    {
+      "id": "aspnet-identity-auth",
+      "name": "ASP.NET Identity Authentication",
+      "description": "Implement authentication and authorization in ASP.NET Core using ASP.NET Core Identity. Learn user management, role-based access control, claims-based authorization, cookie authentication, external login providers (Google, Microsoft), and secure authentication flows.",
+      "shortDescription": "Implement auth with ASP.NET Core Identity",
+      "category": "security",
+      "author": "dotnet-community",
+      "triggers": ["authentication", "identity", "authorization", "login"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "aspnet-identity-auth/SKILL.md"
+      }
+    },
+    {
+      "id": "owasp-secure-coding-dotnet",
+      "name": "OWASP Secure Coding for .NET",
+      "description": "Apply OWASP Top 10 security principles in .NET development. Learn to prevent injection attacks, implement proper authentication, protect sensitive data, enforce access controls, use security logging, handle errors securely, and follow secure coding best practices.",
+      "shortDescription": "Apply OWASP security principles in .NET code",
+      "category": "security",
+      "author": "dotnet-community",
+      "triggers": ["owasp", "security", "secure coding", "vulnerabilities"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "owasp-secure-coding-dotnet/SKILL.md"
+      }
+    },
+    {
+      "id": "dotnet-secret-management",
+      "name": ".NET Secret Management",
+      "description": "Securely manage secrets in .NET applications using Secret Manager, Azure Key Vault, environment variables, and configuration providers. Learn to avoid hardcoded secrets, implement secure storage, rotate credentials, and follow secret management best practices.",
+      "shortDescription": "Manage secrets securely in .NET applications",
+      "category": "security",
+      "author": "dotnet-community",
+      "triggers": ["secrets", "key vault", "credentials", "configuration"],
+      "complexity": "intermediate",
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "path": "dotnet-secret-management/SKILL.md"
+      }
+    }
+  ]
+}

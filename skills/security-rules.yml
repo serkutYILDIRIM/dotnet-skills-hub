@@ -1,0 +1,94 @@
+# ── Security Rules for .NET Skills Hub ──────────────────────────────────────
+# These rules are used to scan skill files for potential security issues
+
+rules:
+  - id: shell-command-execution
+    name: Shell Command Execution
+    description: Detects attempts to execute shell commands which could be exploited for command injection
+    severity: critical
+    pattern: '(Process\.Start|ProcessStartInfo|cmd\.exe|powershell\.exe|\/bin\/sh|\/bin\/bash)'
+    message: "Detected shell command execution. Review for command injection vulnerabilities."
+
+  - id: eval-usage
+    name: Dynamic Code Evaluation
+    description: Detects use of eval() or Function() constructor which can execute arbitrary code
+    severity: critical
+    pattern: '(eval\s*\(|new\s+Function\s*\(|Roslyn.*Compile)'
+    message: "Detected dynamic code evaluation. This can execute arbitrary code and should be avoided."
+
+  - id: unsafe-deserialization
+    name: Unsafe Deserialization
+    description: Detects potentially unsafe deserialization operations
+    severity: high
+    pattern: '(BinaryFormatter|ObjectStateFormatter|NetDataContractSerializer|JavaScriptSerializer|JsonConvert\.DeserializeObject.*TypeNameHandling)'
+    message: "Detected potentially unsafe deserialization. Review for arbitrary code execution risks."
+
+  - id: prompt-injection-markers
+    name: Prompt Injection Markers
+    description: Detects phrases commonly used in prompt injection attacks
+    severity: high
+    pattern: '(ignore\s+(previous|above|all)\s+(instructions?|prompts?|rules?)|system\s+prompt|override\s+(instructions?|prompt))'
+    message: "Detected potential prompt injection markers. Review skill content carefully."
+
+  - id: social-engineering-phrases
+    name: Social Engineering Phrases
+    description: Detects phrases that attempt to manipulate users into unsafe actions
+    severity: high
+    pattern: '(run\s+this\s+command|trust\s+me|just\s+execute|don''t\s+worry|safely\s+ignore|bypass\s+security)'
+    message: "Detected social engineering phrases. Skills should not manipulate users into unsafe actions."
+
+  - id: hardcoded-secrets
+    name: Hardcoded Secrets
+    description: Detects hardcoded API keys, tokens, passwords, and other secrets
+    severity: high
+    pattern: '((api[_-]?key|apikey|access[_-]?token|auth[_-]?token|password|secret|private[_-]?key)\s*[:=]\s*[''"][^''"]{8,}[''"])'
+    message: "Detected potential hardcoded secrets. Credentials should never be embedded in skill files."
+
+  - id: sensitive-file-access
+    name: Sensitive File Access
+    description: Detects access to sensitive system files
+    severity: medium
+    pattern: '(\/etc\/passwd|\/etc\/shadow|\.ssh\/id_rsa|\.aws\/credentials|\.env|web\.config|appsettings.*\.json)'
+    message: "Detected access to sensitive files. Ensure proper authorization and need."
+
+  - id: base64-decode-execute
+    name: Base64 Decode and Execute
+    description: Detects base64 decoding followed by execution patterns
+    severity: high
+    pattern: '(Convert\.FromBase64String.*Encoding.*GetString|atob\s*\(.*eval|Buffer\.from\(.*base64.*eval)'
+    message: "Detected base64 decode with potential execution. This is a common obfuscation technique."
+
+  - id: env-var-exfiltration
+    name: Environment Variable Exfiltration
+    description: Detects attempts to exfiltrate environment variables
+    severity: high
+    pattern: '(Environment\.GetEnvironmentVariables?.*HttpClient|process\.env.*fetch\(|process\.env.*http\.request)'
+    message: "Detected potential environment variable exfiltration. Review network calls carefully."
+
+  - id: path-traversal
+    name: Path Traversal
+    description: Detects path traversal patterns that could access unauthorized files
+    severity: medium
+    pattern: '(\.\.\/|\.\.\|%2e%2e%2f|%2e%2e\)'
+    message: "Detected path traversal pattern. Ensure file paths are properly validated."
+
+  - id: sql-injection
+    name: SQL Injection
+    description: Detects potential SQL injection through string concatenation
+    severity: medium
+    pattern: '(SELECT.*\+.*FROM|INSERT.*\+.*VALUES|UPDATE.*\+.*SET|DELETE.*\+.*FROM|ExecuteSqlRaw.*\+|FromSqlRaw.*\+)'
+    message: "Detected potential SQL injection via string concatenation. Use parameterized queries."
+
+  - id: curl-pipe-shell
+    name: Curl Pipe to Shell
+    description: Detects dangerous curl/wget piped to shell execution
+    severity: critical
+    pattern: '(curl.*\|\s*(bash|sh)|wget.*\|\s*(bash|sh)|Invoke-WebRequest.*\|\s*Invoke-Expression)'
+    message: "Detected curl/wget piped to shell. This is extremely dangerous and should never be used."
+
+  - id: obfuscated-code-patterns
+    name: Obfuscated Code Patterns
+    description: Detects code obfuscation techniques
+    severity: medium
+    pattern: '(String\.fromCharCode|\x[0-9a-fA-F]{2}|\u[0-9a-fA-F]{4}|char\(\d+\))'
+    message: "Detected code obfuscation patterns. Skills should use clear, readable code."
