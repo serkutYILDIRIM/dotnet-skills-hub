@@ -1001,6 +1001,386 @@
         "skillFile": "SKILL.md",
         "branch": "main"
       }
+    },
+    {
+      "id": "binlog-failure-analysis",
+      "name": "MSBuild Binary Log Failure Analysis",
+      "description": "Analyze MSBuild binary logs to diagnose build failures. Learn to generate .binlog files, use MSBuild replay, identify error chains, resolve target failures, and correlate errors to specific project configurations.",
+      "shortDescription": "Analyze MSBuild binary logs for build failures",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["binlog", "msbuild log", "build failure"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["binlog", "msbuild", "build-failure", "diagnostics", "log-analysis"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/binlog-failure-analysis",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "binlog-generation",
+      "name": "MSBuild Binary Log Generation",
+      "description": "Generate MSBuild binary logs for build analysis. Learn dotnet build /bl command, binlog output options, log verbosity levels, and when to capture binary logs for troubleshooting.",
+      "shortDescription": "Generate MSBuild binary logs for analysis",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["binlog generation", "binary log", "build log"],
+      "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["binlog", "msbuild", "logging", "build", "generation"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/binlog-generation",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "build-parallelism-tuning",
+      "name": "MSBuild Parallel Build Tuning",
+      "description": "Tune MSBuild parallel compilation for optimal build times. Learn maxcpucount settings, project dependency graphs, BuildInParallel property, graph-based builds, and identifying serialization bottlenecks.",
+      "shortDescription": "Tune parallel builds for optimal performance",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["parallel build", "maxcpucount", "build speed"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["parallel", "build", "performance", "msbuild", "optimization"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/build-parallelism",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "directory-build-organization",
+      "name": "Directory.Build Organization",
+      "description": "Organize solution-wide build settings with Directory.Build.props and Directory.Build.targets. Learn property inheritance, conditional imports, managing shared settings, avoiding common pitfalls, and structuring multi-project solutions.",
+      "shortDescription": "Organize builds with Directory.Build.props",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["Directory.Build.props", "central properties", "build organization"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["directory-build", "props", "targets", "organization", "centralization"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/directory-build-organization",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "incremental-build-optimization",
+      "name": "Incremental Build Optimization",
+      "description": "Optimize MSBuild incremental builds to avoid unnecessary recompilation. Learn input/output tracking, up-to-date checks, troubleshooting rebuild triggers, and configuring targets for proper incrementality.",
+      "shortDescription": "Optimize incremental builds for faster dev cycles",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["incremental build", "build cache", "rebuild avoidance"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["incremental", "build", "cache", "optimization", "up-to-date"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/incremental-build",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "msbuild-antipatterns",
+      "name": "MSBuild Anti-patterns",
+      "description": "Identify and fix common MSBuild antipatterns. Learn about incorrect property ordering, misused conditions, improper ItemGroup usage, glob expansion issues, and legacy patterns that cause build failures.",
+      "shortDescription": "Identify and fix common MSBuild antipatterns",
+      "category": "msbuild-build",
+      "author": "dotnet-community",
+      "triggers": ["msbuild antipattern", "build mistakes", "project pitfalls"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["antipatterns", "msbuild", "mistakes", "best-practices", "project-files"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/msbuild-antipatterns",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "nuget-central-package-management",
+      "name": "NuGet Central Package Management",
+      "description": "Implement Central Package Management (CPM) for .NET solutions. Learn Directory.Packages.props configuration, version pinning, transitive dependency control, migration from per-project versioning, and managing overrides.",
+      "shortDescription": "Centralize NuGet versions with CPM",
+      "category": "dotnet-nuget",
+      "author": "dotnet-community",
+      "triggers": ["central package management", "CPM", "Directory.Packages.props"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["nuget", "cpm", "centralization", "versioning", "dependency-management"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-nuget/skills/convert-to-cpm",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "nuget-trusted-publishing",
+      "name": "NuGet Trusted Publishing",
+      "description": "Set up secure automated NuGet package publishing from CI/CD pipelines. Learn trusted publisher verification, API key management, GitHub Actions publishing workflows, package signing, and symbol package publishing.",
+      "shortDescription": "Secure automated NuGet publishing from CI/CD",
+      "category": "dotnet-nuget",
+      "author": "dotnet-community",
+      "triggers": ["trusted publishing", "nuget publish", "CI/CD publishing"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["nuget", "publishing", "ci-cd", "security", "automation"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/nuget-trusted-publishing",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-9-to-10-migration",
+      "name": ".NET 9 to .NET 10 Migration",
+      "description": "Migrate applications from .NET 9 to .NET 10. Learn breaking changes, new runtime features, API additions, performance improvements, updated TFM, and testing strategies.",
+      "shortDescription": "Migrate from .NET 9 to .NET 10",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["dotnet 10", "net9 to net10", "upgrade"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["migration", "upgrade", "dotnet10", "breaking-changes", "tfm"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/migrate-dotnet9-to-dotnet10",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-aot-compatibility",
+      "name": ".NET AOT Compatibility",
+      "description": "Ensure application compatibility with .NET Native AOT compilation. Learn trimming analysis, reflection-free patterns, source generators, PublishAot configuration, size optimization, and diagnosing trim warnings.",
+      "shortDescription": "Ensure compatibility with .NET Native AOT",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["aot", "native aot", "ahead of time", "trimming"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["aot", "native", "trimming", "compilation", "compatibility"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/dotnet-aot-compat",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "nullable-reference-migration",
+      "name": "Nullable Reference Types Migration",
+      "description": "Migrate existing C# codebases to nullable reference types. Learn incremental enablement strategies, annotation patterns, suppression operators, nullable contexts, and handling third-party library compatibility.",
+      "shortDescription": "Migrate to nullable reference types",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["nullable", "NRT", "nullable reference types"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["nullable", "nrt", "migration", "type-safety", "warnings"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/migrate-nullable-references",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "thread-abort-migration",
+      "name": "Thread.Abort Migration",
+      "description": "Migrate code away from deprecated Thread.Abort to modern cancellation patterns. Learn CancellationToken usage, cooperative cancellation, replacing Thread.Abort calls, and graceful shutdown patterns.",
+      "shortDescription": "Migrate from Thread.Abort to CancellationToken",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["Thread.Abort", "thread migration", "CancellationToken"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["thread", "cancellation", "migration", "modernization", "async"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/thread-abort-migration",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-10-to-11-migration",
+      "name": ".NET 10 to .NET 11 Migration",
+      "description": "Migrate applications from .NET 10 to .NET 11. Learn breaking changes, new runtime features, API changes, and planning strategies for future upgrades.",
+      "shortDescription": "Plan migration from .NET 10 to .NET 11",
+      "category": "dotnet-upgrade",
+      "author": "dotnet-community",
+      "triggers": ["dotnet 11", "net10 to net11", "upgrade"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["migration", "upgrade", "dotnet11", "breaking-changes", "tfm"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/migrate-dotnet10-to-dotnet11",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "mstest-v3-to-v4-migration",
+      "name": "MSTest v3 to v4 Migration",
+      "description": "Migrate test projects from MSTest v3 to MSTest v4. Learn API changes, new assertion methods, updated lifecycle attributes, and handling breaking changes.",
+      "shortDescription": "Migrate MSTest v3 to v4",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["mstest migration", "mstest v4", "test framework upgrade"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mstest", "migration", "v4", "test-framework", "upgrade"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-test/skills/migrate-mstest-v3-to-v4",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "vstest-to-mtp-migration",
+      "name": "VSTest to Microsoft.Testing.Platform Migration",
+      "description": "Migrate from VSTest to Microsoft.Testing.Platform (MTP). Learn new test host architecture, configuration differences, runner migration, and MTP features like hot-reload testing.",
+      "shortDescription": "Migrate VSTest to Microsoft.Testing.Platform",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["mtp", "testing platform", "vstest migration"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mtp", "vstest", "migration", "test-platform", "modernization"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-test/skills/migrate-vstest-to-mtp",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "writing-mstest-tests",
+      "name": "Writing MSTest Tests",
+      "description": "Write effective tests with MSTest framework. Learn TestClass/TestMethod attributes, data-driven tests with DataRow, assertions, test categories, and organizing test projects.",
+      "shortDescription": "Write effective tests with MSTest",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["mstest", "test writing", "TestMethod", "TestClass"],
+      "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mstest", "testing", "unit-test", "test-writing", "basics"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-test/skills/writing-mstest-tests",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "test-anti-patterns",
+      "name": ".NET Test Anti-patterns",
+      "description": "Identify and fix common .NET testing anti-patterns. Learn about brittle assertions, test interdependence, over-mocking, testing implementation details, and applying best practices.",
+      "shortDescription": "Identify and fix .NET test anti-patterns",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["test antipattern", "test smell", "bad tests"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["antipatterns", "testing", "quality", "best-practices", "test-smells"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-test/skills/test-anti-patterns",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "crap-score-analysis",
+      "name": "CRAP Score Analysis",
+      "description": "Measure and improve code quality using CRAP score analysis. Learn cyclomatic complexity measurement, code coverage correlation, identifying risky code, and prioritizing refactoring.",
+      "shortDescription": "Analyze code quality with CRAP scores",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["crap score", "code quality", "cyclomatic complexity"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["crap-score", "quality", "complexity", "coverage", "refactoring"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-test/skills/crap-score",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "code-testing-agent",
+      "name": "Code Testing Agent",
+      "description": "Use AI-powered testing agents to automatically generate and run .NET tests. Learn test generation strategies, coverage targeting, assertion quality, and integrating AI testing into development workflows.",
+      "shortDescription": "AI-powered .NET test generation and execution",
+      "category": "testing",
+      "author": "dotnet-community",
+      "triggers": ["test agent", "automated testing", "ai test generation"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["testing", "agent", "automation", "ai", "generation"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-test/skills/code-testing-agent",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
     }
   ]
 }
