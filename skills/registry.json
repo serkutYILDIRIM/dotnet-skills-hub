@@ -86,9 +86,15 @@
       "triggers": ["dependency injection", "DI", "IoC", "service registration"],
       "complexity": "intermediate",
       "featured": true,
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["di", "ioc", "dependency-injection", "services", "container"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-dependency-injection/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-dependency-injection",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -101,9 +107,15 @@
       "triggers": ["async", "await", "asynchronous", "Task"],
       "complexity": "intermediate",
       "featured": true,
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["async", "await", "task", "asynchronous", "concurrency"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "csharp-async-await-patterns/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/csharp-async-await-patterns",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -115,9 +127,15 @@
       "author": "dotnet-community",
       "triggers": ["LINQ", "query optimization", "performance", "IEnumerable"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["linq", "query", "optimization", "performance", "ienumerable"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "linq-query-optimization/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/linq-query-optimization",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -130,9 +148,15 @@
       "triggers": ["minimal api", "web api", "endpoint", "MapGet"],
       "complexity": "beginner",
       "featured": true,
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["minimal-api", "web-api", "aspnet", "endpoints", "rest"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "aspnet-minimal-api/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspnet-minimal-api",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -144,9 +168,15 @@
       "author": "dotnet-community",
       "triggers": ["blazor", "component", "razor", "WebAssembly"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["blazor", "components", "razor", "webassembly", "ui"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "blazor-component-patterns/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/blazor-component-patterns",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -158,9 +188,15 @@
       "author": "dotnet-community",
       "triggers": ["signalr", "real-time", "websocket", "hub"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["signalr", "realtime", "websocket", "hub", "messaging"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "signalr-realtime-setup/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/signalr-realtime-setup",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -173,9 +209,15 @@
       "triggers": ["ef core", "migrations", "database", "schema"],
       "complexity": "intermediate",
       "featured": true,
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["ef-core", "migrations", "database", "schema", "code-first"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "ef-core-migrations/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/ef-core-migrations",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -187,9 +229,15 @@
       "author": "dotnet-community",
       "triggers": ["ef core", "performance", "query optimization", "AsNoTracking"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["ef-core", "performance", "query", "optimization", "linq"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "ef-core-query-performance/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-data/skills/optimizing-ef-core-queries",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -201,9 +249,15 @@
       "author": "dotnet-community",
       "triggers": ["dapper", "micro-orm", "sql", "data access"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["dapper", "micro-orm", "sql", "data-access", "performance"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "dapper-data-access/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dapper-data-access",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -215,9 +269,15 @@
       "author": "dotnet-community",
       "triggers": ["xunit", "unit test", "testing", "fact", "theory"],
       "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["xunit", "testing", "unit-test", "fact", "theory"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "xunit-test-patterns/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/xunit-test-patterns",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -229,9 +289,15 @@
       "author": "dotnet-community",
       "triggers": ["moq", "mocking", "mock", "unit test"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["moq", "mocking", "testing", "mock", "stub"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "moq-mocking-strategies/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/moq-mocking-strategies",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -243,9 +309,15 @@
       "author": "dotnet-community",
       "triggers": ["integration test", "WebApplicationFactory", "testing", "e2e"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["integration-test", "webappfactory", "testing", "aspnet", "e2e"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "integration-test-webappfactory/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/integration-test-webappfactory",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -257,9 +329,15 @@
       "author": "dotnet-community",
       "triggers": ["msbuild", "build error", "compilation", "diagnosis"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["msbuild", "build", "diagnostics", "binlog", "compilation"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "msbuild-failure-diagnosis/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/binlog-failure-analysis",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -271,9 +349,15 @@
       "author": "dotnet-community",
       "triggers": ["build optimization", "performance", "compilation speed"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["build", "optimization", "performance", "msbuild", "compilation"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-build-optimization/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/build-perf-diagnostics",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -286,9 +370,15 @@
       "triggers": ["project modernization", "sdk-style", "csproj", "migration"],
       "complexity": "intermediate",
       "featured": true,
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["msbuild", "modernization", "sdk-style", "project", "migration"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "msbuild-project-modernization/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-msbuild/skills/msbuild-modernization",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -300,9 +390,15 @@
       "author": "dotnet-community",
       "triggers": ["nuget", "package", "dependency", "version"],
       "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["nuget", "package", "dependency", "management", "cpm"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "nuget-package-management/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-nuget/skills/convert-to-cpm",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -314,9 +410,15 @@
       "author": "dotnet-community",
       "triggers": ["security audit", "vulnerable packages", "cve", "compliance"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["nuget", "security", "audit", "vulnerabilities", "cve"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "nuget-dependency-audit/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/nuget-dependency-audit",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -328,9 +430,15 @@
       "author": "dotnet-community",
       "triggers": ["package authoring", "nuget publish", "nuspec", "dotnet pack"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["nuget", "authoring", "packaging", "publish", "library"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "nuget-package-authoring/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/nuget-package-authoring",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -342,9 +450,15 @@
       "author": "dotnet-community",
       "triggers": ["migration", ".net 10", "upgrade", "modernization"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["migration", "upgrade", "dotnet10", "modernization", "versioning"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-8-to-10-migration/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/migrate-dotnet9-to-dotnet10",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -357,9 +471,15 @@
       "triggers": ["framework migration", "net framework", "portability", "modernization"],
       "complexity": "advanced",
       "featured": true,
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["migration", "framework", "portability", "modernization", "aot"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "framework-to-core-migration/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-upgrade/skills/dotnet-aot-compat",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -371,9 +491,15 @@
       "author": "dotnet-community",
       "triggers": ["api compatibility", "breaking changes", "obsolete", "analyzer"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["api", "compatibility", "analyzer", "breaking-changes", "obsolete"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "api-compatibility-check/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/api-compatibility-check",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -385,9 +511,15 @@
       "author": "dotnet-community",
       "triggers": ["maui setup", "environment", "android", "ios", "workload"],
       "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["maui", "setup", "environment", "android", "ios"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "maui-environment-setup/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/maui-environment-setup",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -399,9 +531,15 @@
       "author": "dotnet-community",
       "triggers": ["maui mvvm", "data binding", "viewmodel", "architecture"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["maui", "mvvm", "architecture", "databinding", "viewmodel"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "maui-mvvm-architecture/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/maui-mvvm-architecture",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -413,9 +551,15 @@
       "author": "dotnet-community",
       "triggers": ["platform specific", "maui", "native api", "conditional"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["maui", "platform-specific", "native", "conditional", "interop"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "maui-platform-specific-code/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/maui-platform-specific-code",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -427,9 +571,15 @@
       "author": "dotnet-community",
       "triggers": ["semantic kernel", "ai", "llm", "openai"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["semantic-kernel", "ai", "llm", "openai", "orchestration"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "semantic-kernel-integration/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/semantic-kernel-integration",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -441,9 +591,15 @@
       "author": "dotnet-community",
       "triggers": ["ml.net", "machine learning", "model training", "ai"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mlnet", "machine-learning", "ai", "model", "training"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "mlnet-model-training/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/mlnet-model-training",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -455,9 +611,15 @@
       "author": "dotnet-community",
       "triggers": ["mcp", "model context protocol", "ai tools", "claude"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mcp", "ai", "server", "tools", "protocol"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-mcp-server-development/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-mcp-server-development",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -469,9 +631,15 @@
       "author": "dotnet-community",
       "triggers": ["profiling", "performance", "diagnostics", "optimization"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["profiling", "performance", "diagnostics", "optimization", "analysis"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-performance-profiling/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-diag/skills/analyzing-dotnet-performance",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -483,9 +651,15 @@
       "author": "dotnet-community",
       "triggers": ["memory leak", "diagnostics", "heap", "gc", "dump"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["memory", "diagnostics", "leak", "heap", "gc"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-memory-diagnostics/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-diag/skills/dump-collect",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -497,9 +671,15 @@
       "author": "dotnet-community",
       "triggers": ["incident", "production issue", "crash", "debugging"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["incident", "production", "debugging", "analysis", "crash"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-incident-analysis/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-incident-analysis",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -511,9 +691,15 @@
       "author": "dotnet-community",
       "triggers": ["template discovery", "dotnet new", "project template"],
       "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["template", "discovery", "dotnet-new", "search", "project"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-template-discovery/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-template-engine/skills/template-discovery",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -525,9 +711,15 @@
       "author": "dotnet-community",
       "triggers": ["scaffolding", "project creation", "dotnet new", "template"],
       "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["scaffolding", "project", "dotnet-new", "template", "creation"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-project-scaffolding/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-template-engine/skills/template-instantiation",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -539,9 +731,15 @@
       "author": "dotnet-community",
       "triggers": ["template authoring", "template.json", "custom template"],
       "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["template", "authoring", "creation", "template-json", "packaging"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-template-authoring/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-template-engine/skills/template-authoring",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -553,9 +751,15 @@
       "author": "dotnet-community",
       "triggers": ["authentication", "identity", "authorization", "login"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["authentication", "identity", "authorization", "security", "aspnet"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "aspnet-identity-auth/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspnet-identity-auth",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -567,9 +771,15 @@
       "author": "dotnet-community",
       "triggers": ["owasp", "security", "secure coding", "vulnerabilities"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["owasp", "security", "secure-coding", "vulnerabilities", "best-practices"],
       "source": {
-        "repo": "https://github.com/dotnet/skills",
-        "path": "owasp-secure-coding-dotnet/SKILL.md"
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/owasp-secure-coding-dotnet",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     },
     {
@@ -581,9 +791,215 @@
       "author": "dotnet-community",
       "triggers": ["secrets", "key vault", "credentials", "configuration"],
       "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["secrets", "keyvault", "security", "credentials", "configuration"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-secret-management",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "csharp-scripting",
+      "name": "C# Scripting",
+      "description": "Run C# as scripts without full project setup using dotnet-script and CSX files. Learn top-level statements for scripts, referencing NuGet packages with #r directives, automating tasks, and using C# REPL for rapid prototyping.",
+      "shortDescription": "Run C# scripts without full project setup",
+      "category": "dotnet-core",
+      "author": "dotnet-community",
+      "triggers": ["csx", "scripting", "dotnet-script", "REPL"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["csharp", "scripting", "csx", "repl", "automation"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/csharp-scripting",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-pinvoke",
+      "name": ".NET P/Invoke Interop",
+      "description": "Call native platform APIs from .NET using Platform Invocation Services. Learn DllImport attributes, marshaling data types, handling callbacks, LibraryImport source generators, managing unmanaged memory, and cross-platform native interop.",
+      "shortDescription": "Call native APIs from .NET with P/Invoke",
+      "category": "dotnet-core",
+      "author": "dotnet-community",
+      "triggers": ["pinvoke", "interop", "native", "DllImport"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["pinvoke", "interop", "native", "marshaling", "ffi"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-pinvoke",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "csharp-source-generators",
+      "name": "C# Source Generators",
+      "description": "Create compile-time code generators using Roslyn. Learn IIncrementalGenerator interface, syntax analysis, semantic model, emitting source, debugging generators, and performance optimization for build-time codegen.",
+      "shortDescription": "Create compile-time code generators with Roslyn",
+      "category": "dotnet-core",
+      "author": "dotnet-community",
+      "triggers": ["source generator", "roslyn", "code generation", "IIncrementalGenerator"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["roslyn", "source-generator", "codegen", "compile-time", "metaprogramming"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/csharp-source-generators",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "mcp-csharp-debug",
+      "name": "MCP Debug Server in C#",
+      "description": "Build MCP debug servers in C# that expose .NET diagnostic capabilities to AI assistants. Learn to surface breakpoint info, variable inspection, call stack analysis, and exception details through MCP protocol.",
+      "shortDescription": "Build MCP debug servers for AI assistants",
+      "category": "dotnet-ai",
+      "author": "dotnet-community",
+      "triggers": ["mcp debug", "ai debugging", "diagnostic mcp"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mcp", "debug", "diagnostics", "ai-tools", "server"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/mcp-csharp-debug",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "mcp-csharp-test",
+      "name": "MCP Test Server in C#",
+      "description": "Create MCP servers that enable AI assistants to discover, run, and analyze .NET test results. Learn test execution integration, result formatting, coverage reporting, and failure analysis through MCP.",
+      "shortDescription": "Create MCP test servers for AI assistants",
+      "category": "dotnet-ai",
+      "author": "dotnet-community",
+      "triggers": ["mcp test", "ai testing", "test mcp"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["mcp", "testing", "ai-tools", "test-runner", "server"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/mcp-csharp-test",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-ai-technology-selection",
+      "name": ".NET AI Technology Selection",
+      "description": "Choose the right AI/ML technology for .NET projects. Compare Semantic Kernel vs ML.NET vs ONNX Runtime vs Azure AI Services, understand use cases, performance trade-offs, and integration patterns.",
+      "shortDescription": "Choose the right AI/ML tech for .NET",
+      "category": "dotnet-ai",
+      "author": "dotnet-community",
+      "triggers": ["ai selection", "ml framework", "ai comparison"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["ai", "ml", "comparison", "architecture", "decision"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-ai-technology-selection",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "ef-core-change-tracking",
+      "name": "EF Core Change Tracking",
+      "description": "Master EF Core change tracking for optimal data persistence. Learn entity states, DetectChanges behavior, no-tracking queries, change tracker debugging, identity resolution, and performance implications of tracking modes.",
+      "shortDescription": "Master EF Core change tracking mechanisms",
+      "category": "ef-data",
+      "author": "dotnet-community",
+      "triggers": ["change tracking", "entity state", "DetectChanges"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["ef-core", "change-tracking", "entity-state", "persistence", "optimization"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/ef-core-change-tracking",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-trace-collection",
+      "name": ".NET Trace Collection",
+      "description": "Collect and analyze .NET runtime traces using dotnet-trace tool. Learn EventPipe providers, custom event sources, trace conversion to speedscope/chromium format, and analyzing CPU, GC, and contention events.",
+      "shortDescription": "Collect and analyze .NET runtime traces",
+      "category": "dotnet-diag",
+      "author": "dotnet-community",
+      "triggers": ["dotnet-trace", "EventPipe", "trace collection"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["trace", "eventpipe", "diagnostics", "profiling", "analysis"],
       "source": {
         "repo": "https://github.com/dotnet/skills",
-        "path": "dotnet-secret-management/SKILL.md"
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-diag/skills/dotnet-trace-collect",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "clr-activation-debugging",
+      "name": "CLR Activation Debugging",
+      "description": "Debug .NET runtime activation and hosting issues. Learn DOTNET_ROOT configuration, framework-dependent vs self-contained resolution, roll-forward policies, runtime config files, and diagnosing \"framework not found\" errors.",
+      "shortDescription": "Debug .NET runtime activation issues",
+      "category": "dotnet-diag",
+      "author": "dotnet-community",
+      "triggers": ["clr activation", "runtime hosting", "framework resolution"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["clr", "activation", "hosting", "runtime", "debugging"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-diag/skills/clr-activation-debugging",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-microbenchmarking",
+      "name": ".NET Microbenchmarking",
+      "description": "Write reliable microbenchmarks using BenchmarkDotNet. Learn benchmark attributes, memory diagnosers, parameterized benchmarks, baseline comparisons, and avoiding common measurement pitfalls.",
+      "shortDescription": "Write reliable microbenchmarks with BenchmarkDotNet",
+      "category": "dotnet-diag",
+      "author": "dotnet-community",
+      "triggers": ["benchmark", "BenchmarkDotNet", "performance measurement"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["benchmark", "performance", "measurement", "benchmarkdotnet", "optimization"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-diag/skills/microbenchmarking",
+        "skillFile": "SKILL.md",
+        "branch": "main"
       }
     }
   ]
