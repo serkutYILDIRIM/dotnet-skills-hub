@@ -73,6 +73,18 @@
       "name": "Security & Auth",
       "icon": "🔒",
       "description": "Identity, OAuth, OWASP, secure coding"
+    },
+    {
+      "id": "dotnet-aspire",
+      "name": ".NET Aspire & Cloud Native",
+      "icon": "☁️",
+      "description": "Distributed apps, service discovery, orchestration, observability"
+    },
+    {
+      "id": "experimental",
+      "name": "Experimental & Advanced",
+      "icon": "🧬",
+      "description": "SIMD, vectorization, advanced patterns, research-level skills"
     }
   ],
   "skills": [
@@ -1378,6 +1390,246 @@
         "repo": "https://github.com/dotnet/skills",
         "repoName": "dotnet/skills",
         "path": "plugins/dotnet-test/skills/code-testing-agent",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "grpc-service-implementation",
+      "name": "gRPC Service Implementation",
+      "description": "Build high-performance gRPC services in .NET. Learn proto file authoring, service implementation, client generation, streaming patterns, authentication, and interceptors.",
+      "shortDescription": "Build high-performance gRPC services",
+      "category": "aspnet-web",
+      "author": "dotnet-community",
+      "triggers": ["grpc", "protobuf", "rpc", "service"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["grpc", "protobuf", "rpc", "api", "high-performance"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/grpc-service-implementation",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "aspnet-middleware-pipeline",
+      "name": "ASP.NET Middleware Pipeline",
+      "description": "Build custom ASP.NET Core middleware for request/response processing. Learn middleware ordering, short-circuiting, dependency injection, branching with Map/MapWhen, and cross-cutting concerns.",
+      "shortDescription": "Build custom ASP.NET middleware",
+      "category": "aspnet-web",
+      "author": "dotnet-community",
+      "triggers": ["middleware", "pipeline", "request handling"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["middleware", "pipeline", "aspnet", "request", "cross-cutting"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspnet-middleware-pipeline",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "aspnet-health-checks",
+      "name": "ASP.NET Health Checks",
+      "description": "Implement health checks in ASP.NET Core applications. Learn IHealthCheck interface, database/service probes, health check UI, Kubernetes integration, and custom publishers.",
+      "shortDescription": "Implement ASP.NET health checks",
+      "category": "aspnet-web",
+      "author": "dotnet-community",
+      "triggers": ["health check", "readiness", "liveness"],
+      "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["health-check", "monitoring", "kubernetes", "readiness", "liveness"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspnet-health-checks",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "aspire-app-host-setup",
+      "name": ".NET Aspire AppHost Setup",
+      "description": "Set up .NET Aspire AppHost for orchestrating distributed applications. Learn project references, service discovery, resource configuration, container integration, and local development dashboard.",
+      "shortDescription": "Set up .NET Aspire AppHost orchestration",
+      "category": "dotnet-aspire",
+      "author": "dotnet-community",
+      "triggers": ["aspire", "app host", "distributed app"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["aspire", "app-host", "distributed", "orchestration", "cloud-native"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspire-app-host-setup",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "aspire-service-discovery",
+      "name": ".NET Aspire Service Discovery",
+      "description": "Implement service discovery in .NET Aspire applications. Learn named endpoints, HTTP client integration, connection string management, and production deployment patterns.",
+      "shortDescription": "Implement Aspire service discovery",
+      "category": "dotnet-aspire",
+      "author": "dotnet-community",
+      "triggers": ["service discovery", "aspire networking", "endpoint resolution"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["aspire", "service-discovery", "endpoints", "networking", "configuration"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspire-service-discovery",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "aspire-observability",
+      "name": ".NET Aspire Observability",
+      "description": "Implement observability in .NET Aspire apps with OpenTelemetry. Learn distributed tracing, structured logging, metrics collection, Aspire dashboard, and production monitoring setup.",
+      "shortDescription": "Implement Aspire observability with OpenTelemetry",
+      "category": "dotnet-aspire",
+      "author": "dotnet-community",
+      "triggers": ["observability", "telemetry", "opentelemetry", "aspire dashboard"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["observability", "opentelemetry", "tracing", "metrics", "logging"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/aspire-observability",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "simd-vectorization",
+      "name": "SIMD Vectorization",
+      "description": "Leverage SIMD instructions for high-performance .NET code. Learn Vector<T>, System.Runtime.Intrinsics, hardware-specific intrinsics, auto-vectorization patterns, and benchmarking vectorized code.",
+      "shortDescription": "Use SIMD for high-performance .NET code",
+      "category": "experimental",
+      "author": "dotnet-community",
+      "triggers": ["simd", "vectorization", "System.Numerics", "hardware intrinsics"],
+      "complexity": "advanced",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["simd", "vectorization", "performance", "intrinsics", "numerics"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-experimental/skills/exp-simd-vectorization",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "assertion-quality-analysis",
+      "name": "Assertion Quality Analysis",
+      "description": "Analyze and improve test assertion quality. Learn assertion coverage, mutation testing with Stryker.NET, identifying weak assertions, and ensuring tests validate behavior.",
+      "shortDescription": "Analyze and improve test assertion quality",
+      "category": "experimental",
+      "author": "dotnet-community",
+      "triggers": ["assertion quality", "test effectiveness", "mutation testing"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["assertions", "quality", "mutation-testing", "stryker", "effectiveness"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-experimental/skills/exp-assertion-quality",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "test-boilerplate-detection",
+      "name": "Test Boilerplate Detection",
+      "description": "Detect and reduce boilerplate code in .NET test suites. Learn test base class patterns, custom assertion methods, builder patterns, AutoFixture, and shared test infrastructure.",
+      "shortDescription": "Detect and reduce test boilerplate code",
+      "category": "experimental",
+      "author": "dotnet-community",
+      "triggers": ["test boilerplate", "test duplication", "DRY tests"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["boilerplate", "duplication", "dry", "test-infrastructure", "refactoring"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-experimental/skills/exp-test-boilerplate-detection",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "test-maintainability",
+      "name": "Test Maintainability",
+      "description": "Improve test suite maintainability for long-term sustainability. Learn naming conventions, test organization, reducing coupling, managing test data, and evolving tests with production code.",
+      "shortDescription": "Improve test suite maintainability",
+      "category": "experimental",
+      "author": "dotnet-community",
+      "triggers": ["test maintainability", "test quality", "sustainable tests"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["maintainability", "testing", "quality", "sustainability", "organization"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-experimental/skills/exp-test-maintainability",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "test-tagging-strategy",
+      "name": "Test Tagging Strategy",
+      "description": "Implement strategic test tagging for efficient test execution. Learn category attributes, trait-based filtering, CI/CD test selection, parallel execution groups, and tag-based test reporting.",
+      "shortDescription": "Strategic test tagging for efficient execution",
+      "category": "experimental",
+      "author": "dotnet-community",
+      "triggers": ["test tagging", "test categories", "test filtering"],
+      "complexity": "beginner",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["tagging", "categories", "filtering", "organization", "test-selection"],
+      "source": {
+        "repo": "https://github.com/dotnet/skills",
+        "repoName": "dotnet/skills",
+        "path": "plugins/dotnet-experimental/skills/exp-test-tagging",
+        "skillFile": "SKILL.md",
+        "branch": "main"
+      }
+    },
+    {
+      "id": "dotnet-data-protection-api",
+      "name": ".NET Data Protection API",
+      "description": "Protect sensitive data using the .NET Data Protection API. Learn key management, purpose strings, payload protection/unprotection, key rotation, distributed key storage, and web farm configuration.",
+      "shortDescription": "Protect data with .NET Data Protection API",
+      "category": "security",
+      "author": "dotnet-community",
+      "triggers": ["data protection", "encryption", "DPAPI", "key management"],
+      "complexity": "intermediate",
+      "license": "MIT",
+      "platforms": ["windows", "macos", "linux"],
+      "tags": ["data-protection", "encryption", "security", "keys", "dpapi"],
+      "source": {
+        "repo": "https://github.com/serkutYILDIRIM/dotnet-skills-hub",
+        "repoName": "serkutYILDIRIM/dotnet-skills-hub",
+        "path": "skills/dotnet-data-protection-api",
         "skillFile": "SKILL.md",
         "branch": "main"
       }
