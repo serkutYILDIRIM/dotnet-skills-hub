@@ -309,22 +309,18 @@ function updateSkillsRegistry(findings) {
       process.exit(1);
     }
 
-    log('\n📚 Loading skills...', 'cyan');
-    const skillsPath = join(ROOT_DIR, 'site', 'src', 'data', 'skills.json');
+    log('\n📚 Loading skills from registry...', 'cyan');
+    const registryPath = join(ROOT_DIR, 'skills', 'registry.json');
     let skills = [];
 
     try {
-      const skillsContent = readFileSync(skillsPath, 'utf-8');
-      const skillsData = JSON.parse(skillsContent);
-      skills = skillsData.skills || [];
-      log(`   Loaded ${skills.length} skills`, 'green');
-    } catch (error) {
-      log(`   ⚠️  Skills file not found. Run aggregate first.`, 'yellow');
-      const registryPath = join(ROOT_DIR, 'skills', 'registry.json');
       const registryContent = readFileSync(registryPath, 'utf-8');
       const registry = JSON.parse(registryContent);
       skills = registry.skills || [];
       log(`   Loaded ${skills.length} skills from registry`, 'green');
+    } catch (error) {
+      log(`   ⚠️  Failed to load registry: ${error.message}`, 'red');
+      process.exit(1);
     }
 
     const findings = performRegexScan(skills, rules);

@@ -107,11 +107,11 @@ dotnet-skills-hub/
 │   │   └── bug-report.yml          # Bug report form
 │   └── pull_request_template.md    # PR template
 ├── scripts/
-│   ├── aggregate-skills.js         # Aggregate skills from sources
+│   ├── aggregate-skills.js         # Generate site data from registry
 │   ├── scan-skills.js              # Security scanning (2-pass)
 │   └── enrich-skills.js            # AI-powered enrichment
 ├── skills/
-│   ├── registry.json               # Curated skills catalog
+│   ├── registry.json               # Curated skills catalog (source of truth)
 │   ├── schema.json                 # JSON Schema definition
 │   └── security-rules.yml          # Security scan rules (13)
 ├── site/                           # Astro static site
@@ -137,16 +137,33 @@ dotnet-skills-hub/
 │   ├── astro.config.mjs
 │   ├── tsconfig.json
 │   └── package.json
-├── sources/                        # Git submodules
-│   └── dotnet-skills/              # Submodule: dotnet/skills
 ├── gh-dotnet-skills-hub            # GitHub CLI extension (bash)
-├── .gitmodules                     # Submodule config
 ├── .gitignore
 ├── .gitattributes
 ├── package.json                    # Root package config
 ├── logo.svg                        # Project logo
 ├── README.md                       # This file
 └── CONTRIBUTING.md                 # Contribution guide
+```
+
+## Skills Metadata
+
+All skills metadata is managed in `skills/registry.json`. Each skill entry includes a `source` field that points to where the actual SKILL.md file lives:
+
+- **Skills from dotnet/skills**: The `source` field points to `https://github.com/dotnet/skills` with the specific path in that repository
+- **Skills from this repo**: The `source` field points to `https://github.com/serkutYILDIRIM/dotnet-skills-hub` with the path in the `skills/` directory
+
+Example source field format:
+```json
+{
+  "source": {
+    "repo": "https://github.com/dotnet/skills",
+    "repoName": "dotnet/skills",
+    "path": "plugins/dotnet-msbuild/skills/binlog-failure-analysis",
+    "skillFile": "SKILL.md",
+    "branch": "main"
+  }
+}
 ```
 
 ## Contributing
@@ -223,13 +240,12 @@ cd site && npm run preview
 
 | Script | Command | Description |
 |--------|---------|-------------|
-| `npm run aggregate` | `node scripts/aggregate-skills.js` | Aggregate skills from sources |
+| `npm run aggregate` | `node scripts/aggregate-skills.js` | Generate site data from registry |
 | `npm run scan` | `node scripts/scan-skills.js --output scan-report.json --update-skills` | Security scan (regex) |
 | `npm run scan:ai` | `node scripts/scan-skills.js --output scan-report.json --update-skills --ai-scan` | Security scan with AI |
 | `npm run enrich` | `node scripts/enrich-skills.js` | AI-powered metadata enrichment |
 | `npm run build` | `npm run aggregate && npm run scan && cd site && npm run build` | Full production build |
 | `npm run dev` | `npm run aggregate && cd site && npm run dev` | Development server |
-| `npm run update-submodules` | `git submodule update --remote --merge` | Update skill sources |
 
 ## Security Scanning
 
